@@ -1,0 +1,38 @@
+
+<div class="row" style="margin-top:150px">
+    <div class="col-md-4 col-md-offset-4">
+      <form #login="ngForm" (ngSubmit)="LoginAttempt(login)" role="form">
+        <div class="form-group">
+          <input  type="text"
+                  class="form-control"
+                  ngModel
+                  id="uid"
+                  name="uid"
+                  placeholder="User ID"
+                  #uid="ngModel"
+                  required
+          />
+          <span class="help-block" *ngIf="!uid.valid && uid.dirty && uid.touched">Bro.. enter a uid</span>
+        </div>
+        <div class="form-group">
+          <input type="password"
+                 class="form-control"
+                 ngModel
+                 id="pin"
+                 name="pin"
+                 placeholder="Pin"
+                 #pin="ngModel"
+                 required/>
+          <span class="help-block" *ngIf="!pin.valid && pin.dirty && pin.touched">Bro... enter a pin</span>
+
+        </div>
+
+        <button type="submit"
+                class="btn btn-large btn-block btn-primary"
+                [disabled]="!login.valid">Submit</button>
+
+        <button type="button" class="btn btn-lg btn-warning active btn-block bottom-btn" (click)="onAdminAttempt()">Button</button>
+      </form>
+    </div>
+  </div>
+<router-outlet></router-outlet>
